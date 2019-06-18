@@ -33,7 +33,7 @@ cat pro.txt | tr -cs "[:alnum:]" "\n"| tr "[:lower:]" "[:lower:]" | awk '{h[$1]+
 
 echo " "
 
-echo "Inserisci utente da analizzare: "
+echo "Inserisci utente (nome) da analizzare: "
 read utente
 
 echo $utente > ute.txt
