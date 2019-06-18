@@ -1,0 +1,51 @@
+#!/bin/bash
+
+echo " "
+bar ()
+{
+BAR='0 1 0 1 \e[00;31m 0 1 \e[00;43m 0 1 \e[01;46m !'    
+                         
+for i in {0..59}; do
+    echo -ne "\r${BAR:0:$i}" 
+    sleep 0.04
+done
+}
+bar
+
+
+
+echo " "
+echo -e "\e[00m"
+
+echo -e "\e[01;34mVOZZAPPA - Whatsapp profiler and forensics tool\e[01;32m"
+cat dise.txt
+echo -e "\e[00;33mCodename: Test05\e[00m"
+echo "-------"
+echo -e "\e[01;37mCoded by cignoraptor\e[00m"
+echo -e "\e[01;34mFor facebook analyzer or advanced version contact ---> cignointel[AT]gmail.com\e[00m"
+echo "-------"
+
+echo
+echo "Choose language: "
+echo " "
+echo "1 = ITALIANO ||| 2 = ENGLISH"
+echo 
+
+read lingua
+
+if [[ $lingua = 1 ]]
+then
+
+bash vozz-ita
+
+elif [[ $lingua = 2 ]]
+then
+
+bash vozz-eng
+
+else
+
+echo
+echo -e "\e[00;31mChoose 1 or 2 | exiting...\e[00m"
+fi
+

@@ -1,0 +1,420 @@
+#!/bin/bash
+clear
+echo " "
+
+
+echo -e "\e[01;34mVOZZAPPA - Whatsapp profiler and forensics tool\e[01;32m"
+cat dise.txt
+echo -e "\e[00;33mCodename: Test05\e[00m"
+echo "-------"
+echo -e "\e[01;37mCoded by cignoraptor\e[00m"
+echo "-------"
+
+echo " "
+
+echo "Inserisci file da analizzare: "
+read filer
+
+
+cat $filer | grep -Eio "[a-zA-Z0-9]+:" > i.txt
+
+
+#toglie numeri
+sed 's/[0-9]*//g' i.txt > base.txt
+#toglie :
+sed -e "s/://" base.txt > pro.txt
+
+rm base.txt
+
+#identificazione utenti
+echo "Numero maggiori messaggi e identificazione utenti: "
+cat pro.txt | tr -cs "[:alnum:]" "\n"| tr "[:lower:]" "[:lower:]" | awk '{h[$1]++}END{for (i in h){print h[i]" "i}}'|sort -nr | cat -n | head -n 2
+
+
+echo " "
+
+echo "Inserisci utente da analizzare: "
+read utente
+
+echo $utente > ute.txt
+
+utea=$(cat ute.txt)
+#rm ute.txt
+
+echo "$utea:"
+cat $filer > doc.txt
+cat doc.txt | grep -e "$utea" > targ
+
+
+
+
+
+echo -e "- - - - \e[01;32mPAROLE NEGATIVE\e[00m"
+echo " "
+echo -e "\e[00;31mODIO E PERICOLI...\e[00m"
+echo -e "\e[01;37m====================================\e[00m"
+echo " "
+   cat targ | grep --color -e odio -e ammazz -e uccid
+echo " "
+echo -e "\e[01;37m====================================\e[00m"
+echo " "
+echo -e "\e[00;33mGENERALI...\e[00m"
+    cat targ | grep --color -e orribile -e cazzo -e merda -e vaffanculo -e puttana -e imbecille -e coglion -e idot -e schif
+echo " "
+echo -e "\e[01;37m====================================\e[00m"
+echo " "
+
+
+echo " "
+echo " "
+echo -e "- - - - \e[01;32mINTERESSI\e[00m"
+echo " "
+echo -e "\e[00;31mVOLERE\e[00m"
+     cat targ | grep --color -e voglio 
+     cat targ | grep --color -E vorrei
+     cat targ | grep --color -w -e "mi piacerebbe" -e "devo"
+     
+echo " "
+echo -e "\e[01;37m====================================\e[00m"
+echo " "
+echo -e "\e[00;31mPIACERE\e[00m"
+     cat targ | grep --color -w -e "mi piace" 
+     cat targ | grep --color -w -e amo
+     cat targ | grep --color -e ador -e "fantasti" -e "meravig" -e "stupen"
+     
+echo " "
+echo -e "\e[01;37m====================================\e[00m"
+echo " "
+echo -e "- - - - \e[01;32mMOTIVI\e[00m"
+echo " "
+echo -e "\e[00;31mPERCHÈ\e[00m"
+     cat targ | grep --color -e perchè -e motivo
+echo " "
+echo -e "\e[00;31mCREDENZE\e[00m"
+     cat targ | grep --color -e credo -e penso -e sicur
+echo " "
+echo -e "\e[01;37m====================================\e[00m"
+echo " "
+
+
+sed 's/\<e\>//g' targ > tes2 
+sed 's/\<la\>//g' tes2 > tes3  
+sed 's/\<in\>//g' tes3 > tes4  
+sed 's/\<a\>//g' tes4 > tes5 
+sed 's/\<o\>//g' tes5 > tes6  
+sed 's/\<nel\>//g' tes6 > tes7
+sed 's/\<un\>//g' tes7 > tes8  
+sed 's/\<una\>//g' tes8 > tes9
+sed 's/\<che\>//g' tes9 > tes10  
+sed 's/\<per\>//g' tes10 > tes11
+sed 's/\<ha\>//g' tes11 > tes12 
+sed 's/\<il\>//g' tes12 > tes13
+sed 's/\<del\>//g' tes13 > tes14  
+sed 's/\<alla\>//g' tes14 > tes15
+sed 's/\<ho\>//g' tes15 > tes16  
+sed 's/\<è\>//g' tes16 > tes17
+sed 's/\<Ha\>//g' tes17 > tes18
+sed 's/\<della\>//g' tes18 > tes19  
+sed 's/\<le\>//g' tes19 > tes20
+sed 's/\<dei\>//g' tes20 > tes21
+sed 's/\<dell\>//g' tes21 > tes22  
+sed 's/\<likes\>//g' tes22 > tes23  
+sed 's/\<replies\>//g' tes23 > tes24
+sed 's/\<http\>//g' tes24 > tes25
+sed 's/\<ly\>//g' tes25 > tes26 
+sed 's/\<bit\>//g' tes26 > tes27
+sed 's/\<0\>//g' tes27 > tes28 
+sed 's/\<retweet\>//g' tes28 > tes29
+sed 's/\<alle\>//g' tes29 > tes30
+sed 's/\<Della\>//g' tes30 > tes31
+sed 's/\<piace\>//g' tes31 > tes32
+sed 's/\<mi\>//g' tes32 > tes33
+sed 's/\<commenta\>//g' tes33 > tes34
+sed 's/\<immagine\>//g' tes34 > tes35 
+sed 's/\<contenere\>//g' tes35 > tes36
+sed 's/\<all\>//g' tes36 > tes37
+sed 's/\<Commenti\>//g' tes37 > tes38 
+sed 's/\<org\>//g' tes38 > tes39
+sed 's/\<www\>//g' tes39 > tes40
+sed 's/\<com\>//g' tes40 > tes41 
+sed 's/\<ed\>//g' tes41 > tes42
+sed 's/\<da\>//g' tes42 > tes43
+sed 's/\<htm\>//g' tes43 > tes44
+sed 's/\<io\>//g' tes44 > tes45
+sed 's/\<per\>//g' tes45 > tes46
+sed 's/\<che\>//g' tes46 > tes47
+sed 's/\<quel\>//g' tes47 > tes48
+sed 's/\<i\>//g' tes48 > tes49
+sed 's/\<voi\>//g' tes49 > tes50
+sed 's/\<tutti\>//g' tes50 > tes51
+sed 's/\<quando\>//g' tes51 > tes52
+sed 's/\<https\>//g' tes52 > tes53 
+sed 's/\<twitter\>//g' tes53 > tes54
+sed 's/\<search\>//g' tes54 > tes55
+sed 's/\<button\>//g' tes55 > tes56
+sed 's/\<startpage\>//g' tes56 > tes57
+sed 's/\<do\>//g' tes57 > tes58
+sed 's/\<proxy\>//g' tes58 > tes59
+sed 's/\<language\>//g' tes59 > tes60
+sed 's/\<lang\>//g' tes60 > tes61
+sed 's/\<BUTTON\>//g' tes61 > tes62
+sed 's/\<web\>//g' tes62 > tes63
+sed 's/\<q\>//g' tes63 > tes64
+sed 's/\<cat\>//g' tes64 > tes65
+sed 's/\<to\>//g' tes65 > tes66
+sed 's/\<english\>//g' tes66 > tes67
+sed 's/\<with\>//g' tes67 > tes68
+sed 's/\<Tweet\>//g' tes68 > tes69
+sed 's/\<Retweet\>//g' tes69 > tes70
+sed 's/\<src\>//g' tes70 > tes71
+sed 's/\<hashtag\>//g' tes71 > tes72
+sed 's/\<hash\>//g' tes72 > tes73
+sed 's/\<alternate\>//g' tes73 > tes74
+sed 's/\<html\>//g' tes74 > tes75
+sed 's/\<it\>//g' tes75 > tes76
+sed 's/\<It\>//g' tes76 > tes77
+sed 's/\<IT\>//g' tes77 > tes78
+sed 's/\<del\>//g' tes78 > tes79
+sed 's/\<DEL\>//g' tes79 > tes80
+sed 's/\<LANGUAGE\>//g' tes80 > tes81
+sed 's/\<PROXY\>//g' tes81 > tes82
+sed 's/\<LANG\>//g' tes82 > tes83
+sed 's/\<spg\>//g' tes83 > tes84
+sed 's/\<DO\>//g' tes84 > tes85
+sed 's/\<highlight\>//g' tes85 > tes86
+sed 's/\<ma\>//g' tes86 > tes87
+sed 's/\<pi\>//g' tes87 > tes88
+sed 's/\<l\>//g' tes88 > tes89
+sed 's/\<si\>//g' tes89 > tes90
+sed 's/\<non\>//g' tes90 > tes91
+sed 's/\<perch\>//g' tes91 > tes92
+sed 's/\<mi\>//g' tes92 > tes93
+sed 's/[0-9]*//g' tes93 > tes94
+#toglie : e <mediaerror>
+
+sed "s/[<][^)]*[>]//g" tes94 > tes95
+sed -e "s/://" tes95 > fi.txt
+
+
+
+
+rm tes2
+rm tes3
+rm tes4
+rm tes5
+rm tes6
+rm tes7
+rm tes8
+rm tes9
+rm tes10
+rm tes11
+rm tes12
+rm tes13
+rm tes14
+rm tes15
+rm tes16
+rm tes17
+rm tes18
+rm tes19
+rm tes20
+rm tes21
+rm tes22
+rm tes23
+rm tes24
+rm tes25
+rm tes26
+rm tes27
+rm tes28
+rm tes29
+rm tes30
+rm tes31
+rm tes32
+rm tes33
+rm tes34
+rm tes35
+rm tes36
+rm tes37
+rm tes38
+rm tes39
+rm tes40
+rm tes41
+rm tes42
+rm tes43
+rm tes44
+rm tes45
+rm tes46
+rm tes47
+rm tes48
+rm tes49
+rm tes50
+rm tes51
+rm tes52
+rm tes53
+rm tes54
+rm tes55
+rm tes56
+rm tes57
+rm tes58
+rm tes59
+rm tes60
+rm tes61
+rm tes62
+rm tes63
+rm tes64
+rm tes65
+rm tes66
+rm tes67
+rm tes68
+rm tes69
+rm tes70
+rm tes71
+rm tes72
+rm tes73
+rm tes74
+rm tes75
+rm tes76
+rm tes77
+rm tes78
+rm tes79
+rm tes80
+rm tes81
+rm tes82
+rm tes83
+rm tes84
+rm tes85
+rm tes86
+rm tes87
+rm tes88
+rm tes89
+rm tes90
+rm tes91
+rm tes92
+rm tes93
+rm tes94
+rm tes95
+
+
+
+echo -e "-----> \e[01;32mTOP 20 PAROLE PIÙ USATE\e[00m..."
+#echo "INSERISCI NUOVO NOME FILE..ELIMINA E,LA,IN,A,O,NEL ECC..."
+#read nuov
+sed 's/di//g' fi.txt > risu
+rm fi.txt
+#echo "INSERISCI PAROLE DA CERCARE "
+#read uno
+#read due
+
+echo " "
+echo -e "\e[01;37m====================================\e[00m"
+
+echo -e "\e[01;33mTOP 20 PAROLE USATE\e[00m"
+    cat risu | tr -cs "[:alnum:]" "\n"| tr "[:lower:]" "[:upper:]" | awk '{h[$1]++}END{for (i in h){print h[i]" "i}}'|sort -nr | cat -n | head -n 20
+
+echo " "
+echo -e "\e[01;34mSENTIMENT ANALYSIS\e[00m"
+echo -e "\e[01;33mAnalizza numero di frasi ed emoticon \e[01;31mtristi :(\e[00m o \e[01;36mfelici :)\e[00m per argomento\e[00m"
+echo " "
+
+cat targ | grep -e ":(" -e odio -e merd -e ammazz -e brutto -e brutta -e schif -e ammazzare -e uccid -e puttana -e idota -e imbecille -e stronz -e dolore -e orrend -e vomit -e orribi -e vigliacc -e sporc -e sconvolt -e dispera > bad.txt
+cat targ | grep -w -e "non mi piace" -e "non ti sopporto" > b2.txt
+cat targ | grep -e ":)" -e ador -e difendo -e bel -e fantastic -e meraviglios -e carin -e tesoro -e bene -e amore -e solare -e evviva -e felice -e gioi -e stupend -e simpati -e grazie > happy.txt
+cat targ | grep -w -e amo -e "mi piace" -e "molto bene" -e "tanto bene" > ha2.txt
+
+cat bad.txt b2.txt > bf.txt
+rm bad.txt && rm b2.txt
+mv bf.txt bad.txt
+cat happy.txt ha2.txt > h1.txt
+rm happy.txt && rm ha2.txt
+mv h1.txt happy.txt
+
+ 
+echo " "
+echo -e "\e[00;31m============\e[00m"
+cat bad.txt | wc -l && echo -e "frasi \e[01;31m:(\e[00m"
+echo " "
+echo -e "\e[01;36m============\e[00m"
+cat happy.txt | wc -l && echo -e "frasi \e[01;36m:)\e[00m"
+echo " "
+echo " "
+#rm bad.txt
+#rm happy.txt
+rm risu
+
+
+#------
+
+#------
+
+
+sleep 1
+echo " "
+
+found=$(cat bad.txt | wc -l)
+ha=$(cat happy.txt | wc -l)
+
+
+if [[ $found -gt $ha ]]; then
+  echo "Possibile pericolo, il target usa modi Volgari"
+elif [[ $found -eq $ha ]]; then
+  echo "Target equilibrato, bassa percentuale di pericolo grave imminente"
+elif [[ $ha -gt $found ]]; then
+  echo "Target positivo, pericolo imminente molto improbabile"
+else
+echo "errore"
+fi
+
+sleep 0.5
+echo " "
+echo -e "\e[01;34mAnalisi approfondita..."
+echo " "
+sleep 1
+echo " "
+echo -e "\e[00m"
+
+
+
+
+bc <<<"$found*40/100" > ra.txt
+
+bc <<<"$ha*40/100" > ra3.txt
+
+
+
+ris=$(cat ra.txt)
+
+ris3=$(cat ra3.txt)
+
+cat bad.txt happy.txt > pr.txt
+prov=$(cat pr.txt)
+
+if [[ $prov = "0" ]]
+then
+echo -e "\e[01;33mIMPOSSIBILE PROCEDERE COL CALCOLO AVANZATO!\e[00m"
+echo "Valori troppo bassi"
+fi
+
+
+
+echo "======================="
+
+
+
+if [[ $ha -ge $ris ]]; then
+
+echo -e "\e[00;33mATTENZIONE! \e[00;35mBassa probabilità di pericolo immediato: < 40% = \e[00;37mNon elevata percentuale di pericolo/volgarità\e[00m"
+elif [[ $ha -lt $ris ]]; then
+echo -e "\e[00;31mATTENZIONE! \e[01;33mPericolo imminente: > 60% = \e[01;41mviolenza\e[00m"
+
+
+else 
+echo -e "\e[00;33mPossibile minaccia: \e[00;38mRabbia non ancora estrema ma percentuale di negatività/volgarità/violenza intorno al 50%"
+fi
+
+
+
+rm ra.txt && rm ra3.txt
+rm bad.txt
+rm happy.txt && rm ute.txt
+rm targ && rm pro.txt 
+rm i.txt && rm pr.txt
+rm doc.txt
